@@ -6,4 +6,4 @@ Para correr el juego debes ingresar los siguientes comandos en la terminal, dent
 cd game
 python3 main.py
 ```
-
+Siguientes pasos aqui abajo...

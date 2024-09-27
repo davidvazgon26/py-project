@@ -15,6 +15,7 @@ Para correr el juego debes ingresar los siguientes comandos en la terminal, dent
 ```sh
 git clone "url de github"
 cd app
+python3 -m venv env
 source env/bin/activate
 pip3 install -r requirements.txt
 python3 main.py
@@ -33,7 +34,7 @@ Si estas en linux o wsl debes instalar
 sudo apt install -y python3-venv
 ```
 
-Poner cada proyecto en su propio ambiente, entrar en cada carpeta:
+Crear para cada proyecto en su propio ambiente el ambiente virtual, entrar en cada carpeta o proyecto y crearlo con el siguiente comando:
 ```
 python3 -m venv env
 ```
@@ -42,6 +43,7 @@ Activar el ambiente:
 ```
 source env/bin/activate
 ```
+Nota.- debes estar en el directorio del proyecto para activar el ambiente.
 
 Salir del ambiente virtual:
 ```
@@ -57,6 +59,7 @@ Verificar las instalaciones:
 ```
 pip3 freeze
 ```
+Nota.- este comando veras las librerias o paquetes instalados del ambiente en el que estes.
 
 Para automatizar la instalacion de dependencias utilizaremos para crear el archivo base:
 ```
@@ -67,5 +70,16 @@ Luego para consumirlo e instalar las dependencias necesarias utilizamos el coman
 ```
 pip3 install -r requirements.txt
 ```
+
+
+### Proyectos
+
+En esta carpeta existen varios proyectos con su propio ambiente virtual, los proyectos actuales son:
+
+* app
+* appPandas
+* charts
+* game
+* web-server
 
  

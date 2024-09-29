@@ -82,4 +82,60 @@ En esta carpeta existen varios proyectos con su propio ambiente virtual, los pro
 * game
 * web-server
 
+
+## Implementando Docker
+
+* Crea en cada proyecto el archivo Dockerfile 
+* Agregar las configuraciones necesarias por ejemplo:
+
+````
+FROM python:3.8
+WORKDIR /app
+RUN ls -la /app
+COPY requirement.txt /app/requirement.txt
+RUN pip install --no-cache-dir --upgrade -r /app/requirement.txt
+COPY . /app/
+CMD bash -c "while true; do sleep1; done"
+````
+
+* Ahora crea un archivo docker-compose.yml con parametros, por ejemplo:
+````
+services:
+  app-csv:
+    build:
+      context: .
+      dockerfile: Dockerfile
+````
+
+* Construimos y arrancamos el contenedor con los siguientes comandos:
+````
+docker-compose build
+docker-compose up -d
+docker-compose ps
+````
+
+* Hasta aqui ya creamos el contenedor, lo ejecutamos y verificamos que esta corriendo, ahora vamos a utilizarlo con el siguiente comando (considerar que el nombre debe cambiar segun el nombre del contenedor que tienes en SERVICE cuando corres el ultimo comando).
+
+````
+docker-compose exec app-csv bash
+````
+
+* dentro del contenedor puedes utilizar los comandos como los usarias normalmente, como si fuera un ambiente env, para salir solo debes digitar **exit**
+
+* Para apagar el contenedor utiliza down, aqui los comandos:
+````
+exit 
+docker-compose down
+````
+
+* Si necesitas modificar el contenedor, realizas tus cambios, vuelves a re construir el contenedor y ejecutas.
+````
+docker-compose build
+.
+.
+.
+.
+````
+
+
  

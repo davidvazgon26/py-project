@@ -1,0 +1,29 @@
+# version: '3'
+# services:
+#   app:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     volumes:
+#       - .:/app
+#     ports:
+#       - "8000:8000"
+
+services:
+  web-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - '8080:8080'
+
+
+# service:                      crea un servicio
+#   app-csv:                    con el nombre app_csv (puede ser el nombre que desees)
+#     build:                    y construyelo 
+#       context: .              desde el contexto actual
+#       dockerfile: dockerfile  utilizando el archivo dockerfile
+      # volumes:                enlaza los archivos locales con los del contenedor para que se actualicen ante cambios.
+      #       - .:/app
